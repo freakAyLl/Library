@@ -2,7 +2,7 @@
 const sendBtn= document.getElementById('sendButton')
 let bookArr= []
 //functions
-function Book(title, author, pages, read){
+function Book([title, author, pages, read]){
     this.title = title
     this.author = author
     this.pages = pages
@@ -14,13 +14,12 @@ function Book(title, author, pages, read){
 
 function addBookToLibrary() {
     let newBook = document.querySelectorAll('[data-input]')
-    let actualBook = []
-    for(let i=0;i<4;i++){actualBook.push(newBook[i].value)}
-    // do stuff here
-    //console.log(nameBook)
-    //console.log(sendBtn)
-    bookArr.push(actualBook)
-    console.log(bookArr)
+    let actualArr= []
+    for(let i=0;i<4;i++){actualArr.push(newBook[i].value)}
+    let actual = new Book(actualArr)
+    bookArr.push(actual)
+    //console.log(actual)
+    //console.log(bookArr)
     for(let i=0;i<4;i++){newBook[i].value=''}
 }
 //listeners
